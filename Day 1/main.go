@@ -103,8 +103,24 @@ func solvePartTwo(){
 	for i := 0; i < len(lines); i++ {
 		line_num := []int{}
 		//for i, c := range lines[i]
+
+		str := ""
 		for j := 0; j < len(lines[i]); j++ {
 			char := lines[i][j]
+
+			str = str + string(char)
+
+			// first check for word
+
+			wordCheck := checkForWord(str)
+
+			if wordCheck >= 0{
+				// word found!
+				line_num = append(line_num, wordCheck)
+				str = "" // wipe out to look for next word
+			} else {
+				// check for a digit
+			}
 
 
 			// TODO: do tomorrow :)
