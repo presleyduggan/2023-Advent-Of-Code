@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 func readFile(fileName string) []string {
@@ -80,10 +81,22 @@ func solvePartOne() {
 	fmt.Println(solution)
 }
 
+// returns the int value of the word found
+func checkForWord(str string) int{
+	str_nums := []string{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"}
+
+	for i := 0; i < len(str_nums); i++{
+		if strings.Contains(str, str_nums[i]){
+			return i
+		}
+	}
+	return -1
+}
+
 func solvePartTwo(){
 	lines := readFile("test-input2.txt")
 
-	str_nums := []string{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"}
+	
 
 	nums := []int{}
 
